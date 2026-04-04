@@ -72,32 +72,33 @@ pnpm dev
 
 ```js
 // 引入所有组件
-import VElement from '@vikingmute/v-element'
+import PureElement from '@xieone/pure-element'
+
 // 引入样式
-import '@vikingmute/v-element/dist/style.css'
+import '@xieone/pure-element/dist/index.css'
 
 import App from './App.vue'
 // 全局使用
-createApp(App).use(VElement).mount('#app')
+createApp(App).use(PureElement).mount('#app')
 ```
 
 ```vue
 <template>
-  <vk-button>我是 VkButton</vk-button>
+  <pr-button>我是 PrButton</pr-button>
 </template>
 ```
 
 **单个导入**
 
-V Element 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
+Pure Element 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 
 
 ```vue
 <template>
-  <Button>我是 VkButton</Button>
+  <Button>我是 PrButton</Button>
 </template>
 <script>
-  import { Button } from ' @vikingmute/v-element'
+  import { Button } from ' @xieone/pure-element'
   export default {
     components: { Button },
   }
