@@ -1,0 +1,37 @@
+:root {
+  /* VitePress 1.x 主色变量（实际生效的是 -1/-2/-3 和 soft） */
+  --vp-c-brand-1: var(--pr-color-primary);
+  --vp-c-brand-2: var(--pr-color-primary-light-3);
+  --vp-c-brand-3: var(--pr-color-primary-light-5);
+  --vp-c-brand-soft: color-mix(in srgb, var(--vp-c-brand-1) 20%, transparent);
+
+  /* 兼容旧的别名*/
+  --vp-c-brand: var(--vp-c-brand-1);
+  --vp-c-brand-light: var(--vp-c-brand-2);
+  --vp-c-brand-lighter: var(--vp-c-brand-3);
+  --vp-c-brand-dark: var(--pr-color-primary-dark-2);
+  --vp-c-brand-darker: #265F99;
+
+  --component-preview-bg: var(--vp-code-block-bg);
+  --component-preview-soft: var(--vp-code-block-bg-light);
+}
+
+body {
+  color: var(--vp-c-text-1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--vp-c-text-1);
+}
+
+/* 让组件 demo 里的下拉菜单 ul 不受 .vp-doc ul 默认间距影响 */
+.vp-doc ul.pr-dropdown__menu {
+  margin: 0;
+  padding-left: 0;
+}
