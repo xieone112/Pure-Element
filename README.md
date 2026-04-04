@@ -1,48 +1,40 @@
-# v-element
+# Pure-Element
 
-This template should help get you started developing with Vue 3 in Vite.
+一个基于 **Vue3 + TypeScript + Vite** 开发的轻量级通用组件库，提供基础组件、表单组件与反馈组件，支持组件化复用、按需引入与文档演示。
 
-## Recommended IDE Setup
+## 在线预览
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+📖 文档地址：  
+https://xieone112.github.io/Pure-Element/
 
-## Recommended Browser Setup
+---
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 项目简介
 
-## Type Support for `.vue` Imports in TS
+Pure-Element 是一个基于 Vue3 从 0 到 1 开发的通用组件库项目，主要用于沉淀常用 UI 组件、表单能力与交互逻辑，提升组件复用性与开发效率。
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+目前已实现：
 
-## Customize configuration
+- 基础组件：Button、Input、Select、Icon
+- 反馈组件：Tooltip、Dropdown、Message
+- 表单组件：Form、FormItem
+- 工程化支持：按需引入、类型约束、单元测试、文档站点部署
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 技术栈
 
-```sh
-npm install
-```
+- Vue 3
+- TypeScript
+- Vite
+- SCSS
+- Vitest
+- Vue Test Utils
+- async-validator
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
-```
+## 组件特性
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- 基于 **Vue3 Composition API** 开发
+- 使用 **TypeScript** 进行类型约束
