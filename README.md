@@ -64,7 +64,7 @@ cd Pure-Element
 pnpm install
 pnpm dev
 
-### 开始使用
+## 开始使用
 
 **全局使用**
 
