@@ -1,0 +1,63 @@
+.pr-message {
+  --pr-message-bg-color: var(--pr-color-info-light-9);
+  --pr-message-border-color: var(--pr-border-color-lighter);
+  --pr-message-padding: 15px 19px;
+  --pr-message-close-size: 16px;
+  --pr-message-close-icon-color: var(--pr-text-color-placeholder);
+  --pr-message-close-hover-color: var(--pr-text-color-secondary);
+}
+
+.pr-message {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: var(--pr-border-radius-base);
+  border-width: var(--pr-border-width);
+  border-style: var(--pr-border-style);
+  border-color: var(--pr-message-border-color);
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: var(--pr-message-bg-color);
+  padding: var(--pr-message-padding);
+  display: flex;
+  align-items: center;
+  transition: top var(--pr-transition-duration), opacity var(--pr-transition-duration), transform var(--pr-transition-duration);
+
+  .pr-message__content {
+    color: var(--pr-message-text-color);
+    overflow-wrap: anywhere;
+  }
+
+  &.is-close .pr-message__content {
+    padding-right: 30px;
+  }
+
+  .pr-message__close {
+    display: flex;
+    align-items: center;
+  }
+
+  .pr-message__close svg {
+    cursor: pointer;
+  }
+}
+
+@each $val in info, success, warning, danger {
+  .pr-message--#{$val} {
+    --pr-message-bg-color: var(--pr-color-#{$val}-light-9);
+    --pr-message-border-color: var(--pr-color-#{$val}-light-8);
+    --pr-message-text-color: var(--pr-color-#{$val});
+  }
+
+  .pr-message__close {
+    --pr-icon-color: var(--pr-color-#{$val});
+  }
+}
+
+.pr-message.fade-up-enter-from,
+.pr-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

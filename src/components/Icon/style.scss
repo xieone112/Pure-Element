@@ -1,0 +1,16 @@
+.pr-icon {
+  --pr-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--pr-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary, success, warning, danger, info {
+  .pr-icon-#{$val} {
+    --pr-icon-color:var(--pr-color-#{$val});
+  }
+}

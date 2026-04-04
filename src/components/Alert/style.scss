@@ -1,0 +1,58 @@
+.pr-alert {
+  --pr-alert-bg-color: var(--pr-fill-color-light);
+  --pr-alert-border-color: var(--pr-border-color-lighter);
+  --pr-alert-text-color: var(--pr-text-color-regular);
+  --pr-alert-padding: 8px 16px;
+  --pr-alert-border-radius: var(--pr-border-radius-base);
+  --pr-alert-close-color: var(--pr-text-color-placeholder);
+  --pr-alert-close-hover-color: var(--pr-text-color-regular);
+
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--pr-alert-padding);
+  background-color: var(--pr-alert-bg-color);
+  border-radius: var(--pr-alert-border-radius);
+  border: 1px solid var(--pr-alert-border-color);
+  color: var(--pr-alert-text-color);
+  font-size: var(--pr-font-size-base);
+  line-height: 1.4;
+}
+
+.pr-alert.is-closable {
+  padding-right: 32px;
+}
+
+// type 颜色映射（primary / success / warning / danger / info）
+@each $val in primary, success, warning, danger, info {
+
+  // 浅色主题（默认 effect="light"）
+  .pr-alert.pr-alert--#{$val} {
+    --pr-alert-bg-color: var(--pr-color-#{$val}-light-9);
+    --pr-alert-border-color: var(--pr-color-#{$val}-light-5);
+    --pr-alert-text-color: var(--pr-color-#{$val}-dark-2);
+  }
+
+  // 深色主题（effect="dark"）
+  .pr-alert.pr-alert--#{$val}.pr-alert--dark {
+    --pr-alert-bg-color: var(--pr-color-#{$val});
+    --pr-alert-border-color: var(--pr-color-#{$val});
+    --pr-alert-text-color: var(--pr-color-white);
+  }
+}
+
+// 关闭按钮样式
+.pr-alert__close {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--pr-alert-close-color);
+  transition: color var(--pr-transition-duration-fast);
+
+  &:hover {
+    color: var(--pr-alert-close-hover-color);
+  }
+}

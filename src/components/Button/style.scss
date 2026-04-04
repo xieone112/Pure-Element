@@ -1,0 +1,140 @@
+// button.scss
+// 直接用！支持 & 嵌套 + @each 循环！
+
+.pr-button {
+  --pr-button-font-weight: var(--pr-font-weight-primary);
+  --pr-button-border-color: var(--pr-border-color);
+  --pr-button-bg-color: var(--pr-fill-color-blank);
+  --pr-button-text-color: var(--pr-text-color-regular);
+  --pr-button-disabled-text-color: var(--pr-disabled-text-color);
+  --pr-button-disabled-bg-color: var(--pr-fill-color-blank);
+  --pr-button-disabled-border-color: var(--pr-border-color-light);
+  --pr-button-hover-text-color: var(--pr-color-primary);
+  --pr-button-hover-bg-color: var(--pr-color-primary-light-9);
+  --pr-button-hover-border-color: var(--pr-color-primary-light-7);
+  --pr-button-active-text-color: var(--pr-button-hover-text-color);
+  --pr-button-active-border-color: var(--pr-color-primary);
+  --pr-button-active-bg-color: var(--pr-button-hover-bg-color);
+  --pr-button-outline-color: var(--pr-color-primary-light-5);
+  --pr-button-active-color: var(--pr-text-color-primary);
+}
+
+.pr-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--pr-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--pr-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--pr-button-bg-color);
+  border: var(--pr-border);
+  border-color: var(--pr-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--pr-font-size-base);
+  border-radius: var(--pr-border-radius-base);
+
+  &+& {
+    margin-left: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--pr-button-hover-text-color);
+    border-color: var(--pr-button-hover-border-color);
+    background-color: var(--pr-button-hover-bg-color);
+    outline: none;
+  }
+
+  &:active {
+    color: var(--pr-button-active-text-color);
+    border-color: var(--pr-button-active-border-color);
+    background-color: var(--pr-button-active-bg-color);
+    outline: none;
+  }
+
+  &.is-plain {
+    --pr-button-hover-text-color: var(--pr-color-primary);
+    --pr-button-hover-bg-color: var(--pr-fill-color-blank);
+    --pr-button-hover-border-color: var(--pr-color-primary);
+  }
+
+  &.is-round {
+    border-radius: var(--pr-border-radius-round);
+  }
+
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--pr-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--pr-button-disabled-bg-color);
+    border-color: var(--pr-button-disabled-border-color);
+  }
+
+  [class*=pr-icon]+span {
+    margin-left: 6px;
+  }
+}
+
+@each $val in primary, success, warning, info, danger {
+  .pr-button--#{$val} {
+    --pr-button-text-color: var(--pr-color-white);
+    --pr-button-bg-color: var(--pr-color-#{$val});
+    --pr-button-border-color: var(--pr-color-#{$val});
+    --pr-button-outline-color: var(--pr-color-#{$val}-light-5);
+    --pr-button-active-color: var(--pr-color-#{$val}-dark-2);
+    --pr-button-hover-text-color: var(--pr-color-white);
+    --pr-button-hover-bg-color: var(--pr-color-#{$val}-light-3);
+    --pr-button-hover-border-color: var(--pr-color-#{$val}-light-3);
+    --pr-button-active-bg-color: var(--pr-color-#{$val}-dark-2);
+    --pr-button-active-border-color: var(--pr-color-#{$val}-dark-2);
+    --pr-button-disabled-text-color: var(--pr-color-white);
+    --pr-button-disabled-bg-color: var(--pr-color-#{$val}-light-5);
+    --pr-button-disabled-border-color: var(--pr-color-#{$val}-light-5);
+  }
+
+  .pr-button--#{$val}.is-plain {
+    --pr-button-text-color: var(--pr-color-#{$val});
+    --pr-button-bg-color: var(--pr-color-#{$val}-light-9);
+    --pr-button-border-color: var(--pr-color-#{$val}-light-5);
+    --pr-button-hover-text-color: var(--pr-color-white);
+    --pr-button-hover-bg-color: var(--pr-color-#{$val});
+    --pr-button-hover-border-color: var(--pr-color-#{$val});
+    --pr-button-active-text-color: var(--pr-color-white);
+  }
+}
+
+.pr-button--large {
+  --pr-button-size: 40px;
+  height: var(--pr-button-size);
+  padding: 12px 19px;
+  font-size: var(--pr-font-size-base);
+  border-radius: var(--pr-border-radius-base);
+}
+
+.pr-button--small {
+  --pr-button-size: 24px;
+  height: var(--pr-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--pr-border-radius-base) - 1px);
+}

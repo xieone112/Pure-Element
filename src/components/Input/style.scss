@@ -1,0 +1,255 @@
+.pr-input {
+  --pr-input-text-color: var(--pr-text-color-regular);
+  --pr-input-border: var(--pr-border);
+  --pr-input-hover-border: var(--pr-border-color-hover);
+  --pr-input-focus-border: var(--pr-color-primary);
+  --pr-input-transparent-border: 0 0 0 1px transparent inset;
+  --pr-input-border-color: var(--pr-border-color);
+  --pr-input-border-radius: var(--pr-border-radius-base);
+  --pr-input-bg-color: var(--pr-fill-color-blank);
+  --pr-input-icon-color: var(--pr-text-color-placeholder);
+  --pr-input-placeholder-color: var(--pr-text-color-placeholder);
+  --pr-input-hover-border-color: var(--pr-border-color-hover);
+  --pr-input-clear-hover-color: var(--pr-text-color-secondary);
+  --pr-input-focus-border-color: var(--pr-color-primary);
+}
+
+.pr-input {
+  --pr-input-height: var(--pr-component-size);
+  position: relative;
+  font-size: var(--pr-font-size-base);
+  display: inline-flex;
+  width: 100%;
+  line-height: var(--pr-input-height);
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .pr-input__wrapper {
+      background-color: var(--pr-disabled-bg-color);
+      box-shadow: 0 0 0 1px var(--pr-disabled-border-color) inset;
+    }
+
+    .pr-input__inner {
+      color: var(--pr-disabled-text-color);
+      -webkit-text-fill-color: var(--pr-disabled-text-color);
+      cursor: not-allowed;
+    }
+
+    .pr-textarea__inner {
+      background-color: var(--pr-disabled-bg-color);
+      box-shadow: 0 0 0 1px var(--pr-disabled-border-color) inset;
+      color: var(--pr-disabled-text-color);
+      -webkit-text-fill-color: var(--pr-disabled-text-color);
+      cursor: not-allowed;
+    }
+  }
+
+  &.is-prepend {
+    >.pr-input__wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.is-append {
+    >.pr-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+.pr-input--large {
+  --pr-input-height: var(--pr-component-size-large);
+  font-size: 14px;
+
+  .pr-input__wrapper {
+    padding: 1px 15px;
+
+    .pr-input__inner {
+      --pr-input-inner-height: calc(var(--pr-input-height, 40px) - 2px);
+    }
+  }
+
+}
+
+.pr-input--small {
+  --pr-input-height: var(--pr-component-size-small);
+  font-size: 12px;
+
+  .pr-input__wrapper {
+    padding: 1px 7px;
+
+    .pr-input__inner {
+      --pr-input-inner-height: calc(var(--pr-input-height, 24px) - 2px);
+    }
+  }
+}
+
+.pr-input__prefix,
+.pr-input__suffix {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  height: 100%;
+  text-align: center;
+  color: var(--pr-input-icon-color, var(--pr-text-color-placeholder));
+  transition: all var(--pr-transition-duration);
+}
+
+.pr-input__prefix {
+  >:first-child {
+    margin-left: 0px !important;
+  }
+
+  >:last-child {
+    margin-right: 8px !important;
+  }
+}
+
+.pr-input__suffix {
+  >:first-child {
+    margin-left: 8px !important;
+  }
+
+  >:last-child {
+    margin-right: 0px !important;
+  }
+}
+
+.pr-input__prepend,
+.pr-input__append {
+  background-color: var(--pr-fill-color-light);
+  color: var(--pr-color-info);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  border-radius: var(--pr-input-border-radius);
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.pr-input__prepend {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 1px 0 0 0 var(--pr-input-border-color) inset, 0 1px 0 0 var(--pr-input-border-color) inset, 0 -1px 0 0 var(--pr-input-border-color) inset;
+
+}
+
+.pr-input__append {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 1px 0 0 var(--pr-input-border-color) inset, 0 -1px 0 0 var(--pr-input-border-color) inset, -1px 0 0 0 var(--pr-input-border-color) inset;
+
+  &>.pr-input__wrapper {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.pr-input--textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  font-size: var(--pr-font-size-base);
+}
+
+.pr-textarea__wrapper {
+  position: relative;
+  display: block;
+  resize: vertical;
+  padding: 5px 11px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--pr-input-text-color, var(--pr-text-color-regular));
+  background-color: var(--pr-input-bg-color, var(--pr-fill-color-blank));
+  background-image: none;
+  -webkit-appearance: none;
+  box-shadow: 0 0 0 1px var(--pr-input-border-color, var(--pr-border-color)) inset;
+  border-radius: var(--pr-input-border-radius, var(--pr-border-radius-base));
+  transition: var(--pr-transition-box-shadow);
+  border: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--pr-input-focus-border-color) inset;
+  }
+
+  &::placeholder {
+    color: var(--pr-input-placeholder-color);
+  }
+}
+
+.pr-input__wrapper {
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 11px;
+  background-color: var(--pr-input-bg-color, var(--pr-fill-color-blank));
+  background-image: none;
+  border-radius: var(--pr-input-border-radius, var(--pr-border-radius-base));
+  transition: var(--pr-transition-box-shadow);
+  box-shadow: 0 0 0 1px var(--pr-input-border-color, var(--pr-border-color)) inset;
+
+  &:hover {
+    box-shadow: 0 0 0 1px var(--pr-input-hover-border-color) inset;
+  }
+
+  &.is-focus {
+    box-shadow: 0 0 0 1px var(--pr-input-focus-border-color) inset;
+  }
+
+  .pr-input__inner {
+    --pr-input-inner-height: calc(var(--pr-input-height, 32px) - 2px);
+    width: 100%;
+    flex-grow: 1;
+    -webkit-appearance: none;
+    color: var(--pr-input-text-color, var(--pr-text-color-regular));
+    font-size: inherit;
+    height: var(--pr-input-inner-height);
+    line-height: var(--pr-input-inner-height);
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: var(--pr-input-placeholder-color);
+    }
+  }
+
+  .pr-icon {
+    height: inherit;
+    line-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--pr-transition-duration);
+    margin-left: 8px;
+  }
+
+  .pr-input__clear,
+  .pr-input__password {
+    color: var(--pr-input-icon-color);
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--pr-input-clear-hover-color);
+    }
+  }
+}
